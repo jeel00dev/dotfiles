@@ -1,0 +1,52 @@
+separator=true
+separator_block_width=12
+markup=pango
+
+# -------------------------------
+# Battery
+# -------------------------------
+[battery]
+command=cap=$(cat /sys/class/power_supply/BAT0/capacity 2>/dev/null || echo N/A); echo "<span foreground='#c4a7e7'>BAT</span> ${cap}%"
+interval=30
+
+# -------------------------------
+# CPU
+# -------------------------------
+[cpu]
+command=cpu=$(top -bn1 2>/dev/null | awk -F',' '/Cpu\(s\)/ {print 100-$4}' | awk '{print int($1)}'); echo "<span foreground='#ebbcba'>CPU</span> ${cpu:-N/A}%"
+interval=5
+
+# -------------------------------
+# RAM (percent + real)
+# -------------------------------
+[ram]
+command=free -m | awk 'BEGIN{c="#9ccfd8"} /Mem:/ {print "<span foreground=\""c"\">RAM</span> "int($3*100/$2)"% ("$3"/"$2" MB)"}'
+interval=5
+
+# -------------------------------
+# Root filesystem
+# -------------------------------
+[root]
+command=df -h / | awk 'BEGIN{c="#f6c177"} NR==2 {print "<span foreground=\""c"\">ROOT</span> "$5" ("$3"/"$2")"}'
+interval=30
+
+# -------------------------------
+# Home filesystem
+# -------------------------------
+[home]
+command=df -h /home | awk 'BEGIN{c="#a3be8c"} NR==2 {print "<span foreground=\""c"\">HOME</span> "$5" ("$3"/"$2")"}'
+interval=30
+
+# -------------------------------
+# Date
+# -------------------------------
+[date]
+command=date "+<span foreground='#7fbbb3'>DATE</span> %a %d %b %Y"
+interval=60
+
+# -------------------------------
+# Time
+# -------------------------------
+[time]
+command=date "+<span foreground='#e5c890'>TIME</span> %-I:%M %p"
+interval=30
