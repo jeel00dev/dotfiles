@@ -1,0 +1,1 @@
+/home/jeel/.config/i3/
