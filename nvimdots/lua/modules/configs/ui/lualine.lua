@@ -5,10 +5,10 @@ return function()
 	-- Minimal custom theme
 	local minimal_theme = {
 		normal = {
-			c = { fg = "#c6c6c6", bg = "#181818" },
+			c = { fg = "#c6c6c6", bg = "#000000" },
 		},
 		inactive = {
-			c = { fg = "#6c6c6c", bg = "#181818" },
+			c = { fg = "#6c6c6c", bg = "#000000" },
 		},
 	}
 
