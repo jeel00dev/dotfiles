@@ -149,3 +149,6 @@ export RUSTICL_ENABLE=radeonsi
 export VK_ICD_FILENAMES=/usr/share/vulkan/icd.d/radeon_icd.x86_64.json
 export TERM=xterm-256color
 export PATH="$HOME/.npm-global/bin:$PATH"
+
+# vivaldi font randering path
+export PATH="$HOME/Applications/vivaldi-stable:$PATH"
