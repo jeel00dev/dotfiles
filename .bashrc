@@ -152,3 +152,8 @@ export PATH="$HOME/.npm-global/bin:$PATH"
 
 # vivaldi font randering path
 export PATH="$HOME/Applications/vivaldi-stable:$PATH"
+# GROQ_API_KEY is loaded from ~/.secrets (not tracked by git)
+[ -f "$HOME/.secrets" ] && source "$HOME/.secrets"
+
+# opencode
+export PATH=/home/jeel/.opencode/bin:$PATH
